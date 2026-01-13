@@ -1,26 +1,90 @@
+import GlassSection from "../ui/GlassSection"
+
 const projects = [
-  { title: "Todo App", desc: "Task manager using React" },
-  { title: "Portfolio", desc: "Modern portfolio with Tailwind" },
-  { title: "CRUD App", desc: "CRUD operations in React" },
+  {
+    title: "Todo App",
+    desc: "Task management app focused on speed and clean UI.",
+    tech: "React • Tailwind",
+    image: "/projects/todo.png",
+  },
+  {
+    title: "Portfolio Website",
+    desc: "Personal portfolio with animations and glass UI.",
+    tech: "React • Tailwind • GSAP",
+    image: "/projects/portfolio.png",
+  },
+  {
+    title: "CRUD Application",
+    desc: "Reusable CRUD components with modern state handling.",
+    tech: "React • JavaScript",
+    image: "/projects/crud.png",
+  },
 ]
 
 const Project = () => {
   return (
-    <section id="projects" className="max-w-6xl mx-auto px-6 py-20">
-      <h2 className="text-3xl font-bold mb-8">Projects</h2>
+    <GlassSection id="projects" title="Projects">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-      <div className="grid md:grid-cols-3 gap-6">
         {projects.map((p, i) => (
           <div
             key={i}
-            className="p-6 rounded-xl bg-white dark:bg-gray-800 shadow hover:scale-105 transition"
+            className="
+              group relative
+              h-[360px]
+              rounded-3xl
+              overflow-hidden
+              cursor-pointer
+            "
           >
-            <h3 className="text-xl font-semibold mb-2">{p.title}</h3>
-            <p className="text-gray-600 dark:text-gray-300">{p.desc}</p>
+            {/* IMAGE */}
+            <img
+              src={p.image}
+              alt={p.title}
+              className="
+                absolute inset-0 w-full h-full object-cover
+                transition-transform duration-700
+                group-hover:scale-110
+              "
+            />
+
+            {/* DARK OVERLAY */}
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition" />
+
+            {/* CONTENT */}
+            <div className="absolute inset-0 p-6 flex flex-col justify-end">
+              <div
+                className="
+                  backdrop-blur-xl
+                  bg-white/20
+                  border border-white/30
+                  rounded-2xl
+                  p-5
+                  translate-y-6
+                  opacity-0
+                  group-hover:translate-y-0
+                  group-hover:opacity-100
+                  transition-all duration-500
+                "
+              >
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {p.title}
+                </h3>
+
+                <p className="text-sm text-gray-200 mb-3">
+                  {p.desc}
+                </p>
+
+                <span className="text-xs text-emerald-300 tracking-wide">
+                  {p.tech}
+                </span>
+              </div>
+            </div>
           </div>
         ))}
+
       </div>
-    </section>
+    </GlassSection>
   )
 }
 
