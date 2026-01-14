@@ -82,7 +82,7 @@ const About = () => {
 
           {/* SIGNATURE */}
           <div className="pt-4 flex items-center gap-4">
-            <div className="h-px w-12 bg-gradient-to-r from-emerald-500 to-blue-500" />
+            {/* <div className="h-px w-12 bg-gradient-to-r from-emerald-500 to-blue-500" /> */}
             <span className="text-sm text-gray-500">
               Sanjay • Frontend Developer
             </span>

@@ -71,7 +71,7 @@ const Skills = () => {
 
           <div className="group overflow-hidden">
             <div className="flex gap-14 animate-marquee group-hover:[animation-play-state:paused]">
-              {[...scrollSkills, ...scrollSkills].map((Icon, i) => (
+              {[...scrollSkills, ...scrollSkills,...scrollSkills].map((Icon, i) => (
                 <span
                   key={i}
                   className="
