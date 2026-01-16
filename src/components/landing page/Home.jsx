@@ -4,21 +4,38 @@ import Skills from "../skills/Skills"
 import Project from "../project/Project"
 import Contact from "../contact/Contact"
 import GlobalBackground from "../background/GlobalBackground"
-
-// import GlobalBackground from "../../background/GlobalBackground.jsx"
+import useScrollReveal from "../../costumeHooks/useScrollReveal"
+// import useScrollReveal from "../../hooks/useScrollReveal"
 
 const Home = () => {
+  useScrollReveal()
+
   return (
     <div className="relative">
-      {/* ✅ Background starts AFTER landing */}
       <GlobalBackground />
 
-      {/* Portfolio content */}
+      {/* Hero stays static */}
       <Hero />
-      <About />
-      <Skills />
-      <Project />
-      <Contact />
+
+      {/* About → comes from bottom */}
+      <div className="scroll-reveal reveal-up">
+        <About />
+      </div>
+
+      {/* Skills → staggered cards */}
+      <div className="stagger">
+        <Skills />
+      </div>
+
+      {/* Projects → from left */}
+      <div className="scroll-reveal reveal-left">
+        <Project />
+      </div>
+
+      {/* Contact → from right */}
+      <div className="scroll-reveal reveal-right">
+        <Contact />
+      </div>
     </div>
   )
 }
