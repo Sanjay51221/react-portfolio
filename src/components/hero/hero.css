@@ -8,5 +8,19 @@
   animation: float 6s ease-in-out infinite;
 }
 
+#name{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtfizpb2t4eoT6v8XjHG2IJaZfxLvf_zuhBg&s");
+  background-size: cover;
+  background-clip: text;
+  color: transparent;
+  animation: animate 20s linear infinite;
+}
+
+
+@keyframes animate {
+  to{
+    background-position-x: -700px;
+  }
+}
 
 
